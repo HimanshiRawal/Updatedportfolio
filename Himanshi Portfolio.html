@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himanshi Rawal | Frontend Developer Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0B0F19',
+                        darkcard: '#161D30',
+                        accent: {
+                            purple: '#8B5CF6',
+                            pink: '#EC4899',
+                            gold: '#F59E0B'
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'bounce-slow': 'bounce 2s infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0F19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1F2937;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #8B5CF6;
+        }
+
+        /* Scroll reveal basic state */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 3D Perspective Styling */
+        .perspective-container {
+            perspective: 1000px;
+        }
+        .tilt-card {
+            transform-style: preserve-3d;
+            transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+        }
+        .tilt-card img {
+            transform: translateZ(30px);
+            transition: transform 0.15s ease-out;
+        }
+        .tilt-card .glow-layer {
+            transform: translateZ(-10px);
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-100 font-sans selection:bg-accent-purple selection:text-white">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-darkbg/80 backdrop-blur-md border-b border-gray-800 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold tracking-wider bg-gradient-to-r from-accent-purple to-accent-pink bg-clip-text text-transparent">
+                HR.
+            </a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#about" class="hover:text-accent-purple transition-colors">About</a>
+                <a href="#certificate" class="hover:text-accent-purple transition-colors">Achievements</a>
+                <a href="#projects" class="hover:text-accent-purple transition-colors">Projects</a>
+                <a href="#ai-chat" class="hover:text-accent-purple transition-colors flex items-center gap-1.5">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-pink opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-pink"></span>
+                    </span>
+                    AI Assistant
+                </a>
+                <a href="#contact" class="hover:text-accent-purple transition-colors">Contact</a>
+            </nav>
+            <a href="#contact" class="px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white border border-accent-purple/50 rounded-full hover:bg-accent-purple/10 transition-all">
+                Let's Connect
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="about" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12">
+        <!-- Interactive Background Glows -->
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 bg-accent-purple/10 rounded-full blur-[100px] animate-pulse-slow"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-pink/10 rounded-full blur-[120px] animate-pulse-slow"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-6xl mx-auto px-6 z-10 w-full">
+            
+            <!-- Left Column: Biography -->
+            <div class="lg:col-span-7 text-center lg:text-left order-2 lg:order-1">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-darkcard border border-gray-800 text-xs font-medium text-gray-300 mb-6">
+                    <span class="flex h-2 w-2 rounded-full bg-green-400"></span>
+                    Available for Paid Frontend Internships
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4">
+                    Hi, I'm <span class="bg-gradient-to-r from-accent-purple via-accent-pink to-accent-purple bg-clip-text text-transparent">Himanshi Rawal</span>
+                </h1>
+                
+                <!-- Tagline -->
+                <p class="text-base sm:text-xl text-gray-400 font-light mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+                    Frontend Developer & CSE student (AI & ML) at K.R. Mangalam University, specializing in responsive web architectures and interactive UI/UX design.
+                </p>
+
+                <!-- Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-accent-purple to-accent-pink text-white font-medium rounded-lg hover:shadow-lg hover:shadow-accent-purple/20 hover:-translate-y-0.5 transition-all text-center">
+                        Explore My Projects
+                    </a>
+                    <a href="#ai-chat" class="w-full sm:w-auto px-8 py-3.5 bg-darkcard border border-gray-800 text-gray-300 font-medium rounded-lg hover:border-accent-purple/50 hover:text-white transition-all text-center flex items-center justify-center gap-2">
+                        <i data-lucide="message-square" class="w-4 h-4"></i>
+                        Chat with my AI
+                    </a>
+                </div>
+
+                <!-- Tech Stack Pills -->
+                <div class="mt-12 pt-8 border-t border-gray-900/50">
+                    <p class="text-xs uppercase tracking-widest text-gray-500 mb-4">Core Technology Stack</p>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-2 max-w-xl">
+                        <span class="px-3 py-1 bg-darkcard border border-gray-800 text-xs text-gray-400 rounded-md">JavaScript (ES6+)</span>
+                        <span class="px-3 py-1 bg-darkcard border border-gray-800 text-xs text-gray-400 rounded-md">React.js</span>
+                        <span class="px-3 py-1 bg-darkcard border border-gray-800 text-xs text-gray-400 rounded-md">Python</span>
+                        <span class="px-3 py-1 bg-darkcard border border-gray-800 text-xs text-gray-400 rounded-md">Tailwind CSS</span>
+                        <span class="px-3 py-1 bg-darkcard border border-gray-800 text-xs text-gray-400 rounded-md">UI/UX Figma</span>
+                        <span class="px-3 py-1 bg-darkcard border border-gray-800 text-xs text-gray-400 rounded-md">Git/GitHub</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: 3D Photo -->
+            <div class="lg:col-span-5 flex justify-center order-1 lg:order-2 perspective-container">
+                <div id="interactive-tilt-card" class="tilt-card relative w-64 h-64 sm:w-80 sm:h-80 rounded-2xl cursor-pointer">
+                    
+                    <!-- 3D Glow Backing layer -->
+                    <div class="glow-layer absolute -inset-2 rounded-2xl bg-gradient-to-tr from-accent-purple to-accent-pink opacity-40 blur-xl transition-all duration-300"></div>
+                    
+                    <!-- Inner border style frame -->
+                    <div class="absolute inset-0 rounded-2xl border-2 border-accent-purple/40 z-20 pointer-events-none"></div>
+                    
+                    <!-- Actual Profile Image -->
+                    <!-- REPLACE the 'src' link below with your real photo link -->
+                    <img src="mynextimage.jpg" 
+                         alt="Himanshi Rawal" 
+                         class="w-full h-full object-cover rounded-2xl shadow-2xl relative z-10 border border-gray-800">
+                         
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Outstanding Achievement Highlight Card -->
+    <section id="certificate" class="py-20 bg-gradient-to-b from-darkbg to-darkcard/30">
+        <div class="max-w-4xl mx-auto px-6 reveal">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold tracking-tight text-white mb-2">Featured Accomplishment</h2>
+                <p class="text-gray-400 text-sm">Recognized for innovative thinking and social impact.</p>
+            </div>
+
+            <!-- Glow Trophy Card Container -->
+            <div class="relative group">
+                <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-accent-gold via-accent-pink to-accent-purple opacity-30 blur-lg group-hover:opacity-55 transition-all duration-500"></div>
+                <div class="relative bg-darkcard border border-amber-500/30 rounded-2xl p-8 sm:p-10 flex flex-col md:flex-row items-center gap-8 shadow-2xl">
+                    <!-- Icon Section -->
+                    <div class="relative flex-shrink-0 bg-amber-500/10 border border-amber-500/20 p-6 rounded-2xl animate-bounce-slow">
+                        <i data-lucide="trophy" class="w-16 h-16 text-accent-gold"></i>
+                    </div>
+                    <!-- Details Section -->
+                    <div class="flex-grow text-center md:text-left">
+                        <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-3">
+                            <span class="px-3 py-0.5 text-[10px] font-semibold tracking-wider text-amber-400 border border-amber-400/30 bg-amber-400/5 rounded-full uppercase">Outstanding Certificate</span>
+                            <span class="px-3 py-0.5 text-[10px] font-semibold tracking-wider text-purple-400 border border-purple-400/30 bg-purple-400/5 rounded-full uppercase">College Hackathon Winner</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Smart AI Glasses for Visually Impaired</h3>
+                        <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                            Awarded the prestigious <strong>Outstanding Certificate</strong> at our college hackathon for designing and building an AI-powered smart glasses architecture concept. By combining computer vision with dynamic Natural Language Processing, it converts spatial environmental structures into detailed real-time auditory guides for visually impaired users.
+                        </p>
+                        <p class="text-xs text-gray-500 flex items-center justify-center md:justify-start gap-1">
+                            <i data-lucide="award" class="w-4 h-4 text-accent-gold"></i>
+                            K.R. Mangalam University — Feb 2026
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Portfolio Section -->
+    <section id="projects" class="py-20 max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 reveal">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-2 text-white">Interactive Projects</h2>
+            <p class="text-gray-400 text-sm">A selective showcase of applications, interfaces, and core utility software.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project 1 (Highlighted) -->
+            <div class="reveal bg-darkcard border border-purple-500/30 rounded-xl p-6 flex flex-col justify-between hover:scale-[1.02] hover:border-purple-500/60 transition-all duration-300 relative group">
+                <span class="absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide bg-accent-purple/20 text-accent-purple border border-accent-purple/30 rounded-full">Active Development</span>
+                <div>
+                    <div class="p-3 bg-purple-500/10 rounded-lg w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="eye" class="text-accent-purple w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Smart AI Glasses</h3>
+                    <p class="text-gray-400 text-sm mb-4">Designed concept architecture utilizing computer vision algorithms and NLP pipelines to convert live spatial camera captures into natural sounding real-time audio navigation cues.</p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">Python</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">Computer Vision</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">NLP</span>
+                    </div>
+                    <div class="flex items-center text-xs text-accent-purple font-medium group-hover:underline">
+                        Outstanding Award Project &rarr;
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="reveal bg-darkcard border border-gray-800 rounded-xl p-6 flex flex-col justify-between hover:scale-[1.02] hover:border-gray-700 transition-all duration-300 relative group">
+                <span class="absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide bg-blue-500/20 text-blue-400 border border-blue-500/30 rounded-full">Completed</span>
+                <div>
+                    <div class="p-3 bg-blue-500/10 rounded-lg w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="cloud-sun" class="text-blue-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Weather Tracker App</h3>
+                    <p class="text-gray-400 text-sm mb-4">A dynamic real-time local and global weather tracking utility. Fetches conditions instantly using asynchronous JavaScript networks with modular responsive displays.</p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">JavaScript (ES6+)</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">OpenWeather API</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">CSS Grid</span>
+                    </div>
+                    <div class="flex gap-4 items-center text-xs">
+                        <a href="https://github.com/HimanshiRawal" target="_blank" class="text-gray-400 hover:text-white flex items-center gap-1">
+                            <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                        </a>
+                        <span class="text-gray-600">|</span>
+                        <span class="text-gray-500 flex items-center gap-1 italic"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="reveal bg-darkcard border border-gray-800 rounded-xl p-6 flex flex-col justify-between hover:scale-[1.02] hover:border-gray-700 transition-all duration-300 relative group">
+                <span class="absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide bg-pink-500/20 text-pink-400 border border-pink-500/30 rounded-full">Completed</span>
+                <div>
+                    <div class="p-3 bg-pink-500/10 rounded-lg w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="layout" class="text-pink-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Personal Portfolio</h3>
+                    <p class="text-gray-400 text-sm mb-4">A feature-packed, fast portfolio site utilizing modern layout techniques, custom typography, optimized accessibility scripts, and rich interactions.</p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">HTML5</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">CSS3 Flexbox</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">Vanilla JS</span>
+                    </div>
+                    <div class="flex gap-4 items-center text-xs">
+                        <a href="https://github.com/HimanshiRawal" target="_blank" class="text-gray-400 hover:text-white flex items-center gap-1">
+                            <i data-lucide="github" class="w-3.5 h-3.5"></i> Code
+                        </a>
+                        <span class="text-gray-600">|</span>
+                        <span class="text-gray-500 flex items-center gap-1 italic"><i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="reveal bg-darkcard border border-gray-800 rounded-xl p-6 flex flex-col justify-between hover:scale-[1.02] hover:border-gray-700 transition-all duration-300 relative group">
+                <span class="absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full">Completed</span>
+                <div>
+                    <div class="p-3 bg-emerald-500/10 rounded-lg w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="shopping-cart" class="text-emerald-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">E-Commerce Page UI</h3>
+                    <p class="text-gray-400 text-sm mb-4">A premium, highly responsive conversion-oriented e-commerce layout containing customized detail interactive grids, dynamic galleries, and add-to-cart status managers.</p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">HTML/CSS</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">CSS Grid</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">Responsive UX</span>
+                    </div>
+                    <div class="flex gap-4 items-center text-xs">
+                        <span class="text-gray-500 flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3"></i> Private Repo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="reveal bg-darkcard border border-gray-800 rounded-xl p-6 flex flex-col justify-between hover:scale-[1.02] hover:border-gray-700 transition-all duration-300 relative group">
+                <span class="absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide bg-amber-500/20 text-amber-400 border border-amber-500/30 rounded-full">Completed</span>
+                <div>
+                    <div class="p-3 bg-amber-500/10 rounded-lg w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="check-square" class="text-amber-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Interactive Quiz App</h3>
+                    <p class="text-gray-400 text-sm mb-4">An interactive quiz engine displaying robust modular question rendering, instant algorithmic scoring calculations, responsive timers, and dynamic performance diagnostics.</p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">JavaScript OOP</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">DOM Logic</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">Dynamic UI</span>
+                    </div>
+                    <div class="flex gap-4 items-center text-xs">
+                        <span class="text-gray-500 flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3"></i> Private Repo</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="reveal bg-darkcard border border-gray-800 rounded-xl p-6 flex flex-col justify-between hover:scale-[1.02] hover:border-gray-700 transition-all duration-300 relative group">
+                <span class="absolute top-4 right-4 px-2.5 py-0.5 text-[10px] font-semibold tracking-wide bg-teal-500/20 text-teal-400 border border-teal-500/30 rounded-full">Completed</span>
+                <div>
+                    <div class="p-3 bg-teal-500/10 rounded-lg w-12 h-12 flex items-center justify-center mb-6">
+                        <i data-lucide="list-todo" class="text-teal-400 w-6 h-6"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Minimalist To-Do App</h3>
+                    <p class="text-gray-400 text-sm mb-4">A high-fidelity minimalist planning web interface containing browser task persistent storage, transitions, complete filter layers, and quick delete states.</p>
+                </div>
+                <div>
+                    <div class="flex flex-wrap gap-1.5 mb-6">
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">localStorage</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">Vanilla JS</span>
+                        <span class="px-2 py-0.5 text-[10px] bg-darkbg border border-gray-800 text-gray-400 rounded">CSS3 Transforms</span>
+                    </div>
+                    <div class="flex gap-4 items-center text-xs">
+                        <span class="text-gray-500 flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3"></i> Private Repo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chat Section -->
+    <section id="ai-chat" class="py-20 bg-darkcard/50 border-y border-gray-900">
+        <div class="max-w-4xl mx-auto px-6 reveal">
+            <!-- Header Text -->
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 bg-accent-purple/10 border border-accent-purple/30 text-xs font-semibold text-accent-purple rounded-full uppercase tracking-wider mb-2">
+                    Claude AI Engine
+                </div>
+                <h2 class="text-3xl font-bold text-white">Ask Himanshi's AI Assistant</h2>
+                <p class="text-gray-400 text-sm mt-1">Get precise information about her skills, projects, and work opportunities.</p>
+            </div>
+
+            <!-- Chat Interface Mockup -->
+            <div class="bg-darkbg border border-gray-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row min-h-[500px]">
+                
+                <!-- Quick Suggestion Column (Left) -->
+                <div class="md:w-1/3 bg-darkcard/40 p-6 border-b md:border-b-0 md:border-r border-gray-800 flex flex-col justify-between">
+                    <div>
+                        <h4 class="text-xs font-semibold tracking-wider text-gray-400 uppercase mb-4">Frequently Asked Questions</h4>
+                        <div class="space-y-2.5">
+                            <button onclick="sendQuickPrompt('What projects has she built?')" class="w-full text-left px-3 py-2 bg-darkcard hover:bg-darkbg border border-gray-800 hover:border-accent-purple/40 text-xs text-gray-300 rounded-lg transition-all duration-200">
+                                What projects has she built?
+                            </button>
+                            <button onclick="sendQuickPrompt('Is she looking for internships?')" class="w-full text-left px-3 py-2 bg-darkcard hover:bg-darkbg border border-gray-800 hover:border-accent-purple/40 text-xs text-gray-300 rounded-lg transition-all duration-200">
+                                Is she looking for internships?
+                            </button>
+                            <button onclick="sendQuickPrompt('What technical skills does she have?')" class="w-full text-left px-3 py-2 bg-darkcard hover:bg-darkbg border border-gray-800 hover:border-accent-purple/40 text-xs text-gray-300 rounded-lg transition-all duration-200">
+                                What are her technical skills?
+                            </button>
+                            <button onclick="sendQuickPrompt('Tell me about her Outstanding Certificate')" class="w-full text-left px-3 py-2 bg-darkcard hover:bg-darkbg border border-gray-800 hover:border-accent-purple/40 text-xs text-gray-300 rounded-lg transition-all duration-200">
+                                Tell me about her Certificate
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-gray-800 hidden md:block">
+                        <p class="text-[11px] text-gray-500 leading-normal">
+                            This simulated assistant uses matching rules based on Himanshi's resume to provide authentic responses.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Live Chat Window (Right) -->
+                <div class="flex-grow flex flex-col justify-between min-h-[350px]">
+                    <!-- Chat Body -->
+                    <div id="chat-messages" class="p-6 overflow-y-auto max-h-[380px] space-y-4 flex-grow flex flex-col">
+                        <!-- Welcome message -->
+                        <div class="bg-darkcard border border-gray-800 rounded-r-xl rounded-bl-xl p-4 max-w-[85%] self-start">
+                            <div class="flex items-center gap-1.5 mb-1.5">
+                                <span class="text-[10px] uppercase font-bold text-accent-purple">Claude assistant</span>
+                                <span class="h-1 w-1 rounded-full bg-gray-600"></span>
+                                <span class="text-[9px] text-gray-500">Active now</span>
+                            </div>
+                            <p class="text-xs text-gray-300 leading-relaxed">
+                                Hello! I'm Himanshi's custom-trained AI assistant. Ask me questions like "Is she looking for internships?" or "What projects has she built?" to find out more.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Typing Status Simulator (hidden initially) -->
+                    <div id="typing-indicator" class="px-6 py-2 flex items-center gap-1.5 text-xs text-gray-500 hidden">
+                        <span class="flex space-x-1">
+                            <span class="h-1.5 w-1.5 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></span>
+                            <span class="h-1.5 w-1.5 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
+                            <span class="h-1.5 w-1.5 bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
+                        </span>
+                        <span>Claude is thinking...</span>
+                    </div>
+
+                    <!-- Input Bar -->
+                    <form id="chat-form" onsubmit="handleChatSubmit(event)" class="p-4 border-t border-gray-800 bg-darkcard/20 flex gap-2">
+                        <input id="chat-input" type="text" placeholder="Type a message..." class="flex-grow bg-darkcard border border-gray-800 focus:border-accent-purple/50 focus:outline-none text-xs text-gray-300 rounded-lg px-4 py-2.5 transition-colors">
+                        <button type="submit" class="p-2.5 bg-accent-purple hover:bg-accent-purple/90 text-white rounded-lg transition-colors flex items-center justify-center">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Contact Section -->
+    <section id="contact" class="py-20 max-w-4xl mx-auto px-6 reveal">
+        <div class="bg-gradient-to-br from-darkcard to-darkbg border border-gray-800 rounded-3xl p-8 sm:p-12 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-accent-purple/5 rounded-full blur-3xl"></div>
+            
+            <div class="max-w-2xl mx-auto text-center relative z-10">
+                <h2 class="text-3xl font-extrabold text-white mb-2">Let's Build Something Exceptional</h2>
+                <p class="text-gray-400 text-sm mb-8 leading-relaxed">
+                    I am actively seeking an internship or collaboration opportunities. Let's talk about how I can bring value to your projects.
+                </p>
+
+                <!-- Contact Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                    <a href="mailto:himanshigujjar063@gmail.com" class="p-4 bg-darkbg hover:bg-accent-purple/10 border border-gray-800 hover:border-accent-purple/40 rounded-xl transition-all flex flex-col items-center">
+                        <i data-lucide="mail" class="w-5 h-5 text-accent-purple mb-2"></i>
+                        <span class="text-xs font-semibold text-white">Email Me</span>
+                        <span class="text-[10px] text-gray-500 mt-1">himanshigujjar063@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/himanshi-rawal-64754439b" target="_blank" class="p-4 bg-darkbg hover:bg-accent-purple/10 border border-gray-800 hover:border-accent-purple/40 rounded-xl transition-all flex flex-col items-center">
+                        <i data-lucide="linkedin" class="w-5 h-5 text-accent-purple mb-2"></i>
+                        <span class="text-xs font-semibold text-white">LinkedIn Profile</span>
+                        <span class="text-[10px] text-gray-500 mt-1">/in/himanshi-rawal</span>
+                    </a>
+                    <a href="https://github.com/HimanshiRawal" target="_blank" class="p-4 bg-darkbg hover:bg-accent-purple/10 border border-gray-800 hover:border-accent-purple/40 rounded-xl transition-all flex flex-col items-center">
+                        <i data-lucide="github" class="w-5 h-5 text-accent-purple mb-2"></i>
+                        <span class="text-xs font-semibold text-white">GitHub Account</span>
+                        <span class="text-[10px] text-gray-500 mt-1">@HimanshiRawal</span>
+                    </a>
+                </div>
+
+                <!-- Phone -->
+                <p class="text-xs text-gray-500 flex items-center justify-center gap-1.5">
+                    <i data-lucide="phone" class="w-3.5 h-3.5"></i>
+                    Direct Line: +91 73558 93910 | Gurgaon, Haryana
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-gray-950 bg-darkbg">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p class="text-xs text-gray-600">&copy; 2026 Himanshi Rawal. All rights reserved.</p>
+            <p class="text-xs text-gray-600 flex items-center gap-1">Designed & coded with <i data-lucide="heart" class="w-3 h-3 text-accent-pink fill-accent-pink"></i></p>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Scroll Reveal Mechanics
+        const revealElements = document.querySelectorAll('.reveal');
+        const handleScrollReveal = () => {
+            const triggerBottom = (window.innerHeight / 10) * 8.5;
+            revealElements.forEach(elem => {
+                const elemTop = elem.getBoundingClientRect().top;
+                if(elemTop < triggerBottom) {
+                    elem.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', handleScrollReveal);
+        // Initial call on load
+        handleScrollReveal();
+
+        // ----------------------------------------------------
+        // 3D Tilt Interaction Mechanics
+        // ----------------------------------------------------
+        const tiltCard = document.getElementById('interactive-tilt-card');
+        if (tiltCard) {
+            tiltCard.addEventListener('mousemove', (e) => {
+                const rect = tiltCard.getBoundingClientRect();
+                const x = e.clientX - rect.left; // x coordinate inside element
+                const y = e.clientY - rect.top;  // y coordinate inside element
+                
+                const width = rect.width;
+                const height = rect.height;
+                
+                // Calculate rotation based on cursor position relative to element center
+                // Max rotation set to 15 degrees
+                const rotateX = ((y / height) - 0.5) * -30;
+                const rotateY = ((x / width) - 0.5) * 30;
+                
+                tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.04, 1.04, 1.04)`;
+            });
+
+            tiltCard.addEventListener('mouseleave', () => {
+                tiltCard.style.transform = 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+            });
+        }
+
+        // ----------------------------------------------------
+        // simulated Claude AI Chat Mechanics
+        // ----------------------------------------------------
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        // Context-aware simulated assistant logic
+        const responses = [
+            {
+                keywords: ['project', 'work', 'built', 'build', 'portfolio'],
+                reply: "Himanshi has built 6 notable projects:\n\n" +
+                       "1. **Smart AI Glasses** (Featured concept, using computer vision & NLP for visually impaired help)\n" +
+                       "2. **Weather Tracker App** (Using asynchronous JS APIs)\n" +
+                       "3. **Personal Portfolio** (Fully responsive layout built on accessibility standards)\n" +
+                       "4. **E-Commerce Page UI** (An conversion-oriented interface grid using Flexbox & dynamic menus)\n" +
+                       "5. **Interactive Quiz App** (JS object-oriented quiz structures)\n" +
+                       "6. **To-Do Task Scheduler** (Dynamic status persistence with localStorage)\n\n" +
+                       "She focuses heavily on clean interfaces, UI/UX aesthetics, and modern web optimization."
+            },
+            {
+                keywords: ['internship', 'hire', 'hiring', 'opportunity', 'job', 'paid'],
+                reply: "Yes, Himanshi is highly motivated and actively seeking a paid frontend development internship where she can bring modern styling skills to professional code repositories. Her strengths are in UI/UX designing, responsive architecture (HTML/CSS, Flexbox/Grid), and React.js application structure."
+            },
+            {
+                keywords: ['skill', 'languages', 'tech', 'stack', 'tool', 'figma'],
+                reply: "Himanshi's technical stack contains:\n\n" +
+                       "• **Languages:** Javascript (ES6+), Python\n" +
+                       "• **Frontend:** React.js, HTML5, CSS3, DOM manipulation architectures, CSS grids & layouts\n" +
+                       "• **Design Tools:** Figma prototyping & user experiences design pipelines\n" +
+                       "• **Dev Tools:** Git, GitHub, VS Code\n" +
+                       "• **Concepts:** Async operations (Fetch/APIs), DSA structures"
+            },
+            {
+                keywords: ['certificate', 'trophy', 'outstanding', 'hackathon', 'award'],
+                reply: "Himanshi received an **Outstanding Certificate** at her college hackathon for developing and pitching the Smart AI Glasses architecture concept. The judges highly commended her visual processing flow and social impact design strategy."
+            },
+            {
+                keywords: ['education', 'college', 'university', 'btech', 'degree'],
+                reply: "She is pursuing a B.Tech in Computer Science and Engineering, with a focus track in Artificial Intelligence & Machine Learning, from K.R. Mangalam University, Gurgaon (August 2025 – Present)."
+            },
+            {
+                keywords: ['contact', 'email', 'phone', 'reach', 'social', 'linkedin', 'github'],
+                reply: "You can reach out to Himanshi directly:\n\n" +
+                       "• **Email:** himanshigujjar063@gmail.com\n" +
+                       "• **Phone:** +91 73558 93910\n" +
+                       "• **LinkedIn:** linkedin.com/in/himanshi-rawal-64754439b\n" +
+                       "• **GitHub:** github.com/HimanshiRawal"
+            }
+        ];
+
+        function getBotResponse(userMsg) {
+            const query = userMsg.toLowerCase();
+            for (let item of responses) {
+                if (item.keywords.some(keyword => query.includes(keyword))) {
+                    return item.reply;
+                }
+            }
+            return "I recognize that query, but I'm specialized in Himanshi's professional portfolio. Try asking: 'What projects has she built?', 'Is she looking for internships?', 'What are her skills?', or 'Tell me about her Outstanding Certificate'.";
+        }
+
+        function appendMessage(sender, text) {
+            const bubble = document.createElement('div');
+            
+            if(sender === 'user') {
+                bubble.className = "bg-accent-purple text-white rounded-l-xl rounded-tr-xl p-3 max-w-[85%] self-end text-xs leading-relaxed";
+                bubble.innerText = text;
+            } else {
+                bubble.className = "bg-darkcard border border-gray-800 rounded-r-xl rounded-bl-xl p-4 max-w-[85%] self-start text-xs leading-relaxed text-gray-300";
+                
+                // Parse mini markdown for aesthetic list responses
+                let formattedText = text.replace(/\n/g, "<br>");
+                formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+                formattedText = formattedText.replace(/• /g, "✦ ");
+                
+                const metaInfo = `
+                    <div class="flex items-center gap-1.5 mb-1.5">
+                        <span class="text-[10px] uppercase font-bold text-accent-purple">Claude Assistant</span>
+                    </div>
+                    <div>${formattedText}</div>
+                `;
+                bubble.innerHTML = metaInfo;
+            }
+
+            chatMessages.appendChild(bubble);
+            // Scroll to the bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function triggerAIResponse(text) {
+            // Show typing indicator
+            typingIndicator.classList.remove('hidden');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            setTimeout(() => {
+                typingIndicator.classList.add('hidden');
+                const botReply = getBotResponse(text);
+                appendMessage('bot', botReply);
+            }, 850);
+        }
+
+        function handleChatSubmit(e) {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if(!text) return;
+
+            appendMessage('user', text);
+            chatInput.value = '';
+            triggerAIResponse(text);
+        }
+
+        function sendQuickPrompt(promptText) {
+            appendMessage('user', promptText);
+            triggerAIResponse(promptText);
+        }
+    </script>
+</body>
+</html>
